@@ -1,0 +1,5 @@
+replicaCount: 2
+image: gcr.io/argoproj/guestbook:v1
+service:
+  port: 80
+  targetPort: 5000
