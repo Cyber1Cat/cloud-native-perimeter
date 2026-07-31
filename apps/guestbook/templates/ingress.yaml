@@ -2,17 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: guestbook-ingress
+  namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx # Resolves the <none> routing class error
   rules:
-  - host: app.local
+  - host: guestbook.app.local # Binds explicitly to your app route
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: guestbook-service
+            name: guestbook-ui-service
             port:
               number: {{ .Values.service.port }}
