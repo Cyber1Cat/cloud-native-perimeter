@@ -14,6 +14,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: guestbook-ui-service
+            name: guestbook-service
             port:
               number: {{ .Values.service.port }}
