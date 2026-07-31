@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: main
-        image: "{{ .Values.image }}" # Wrapped in quotes for safe string parsing
+        image: "{{ .Values.image }}"
         ports:
         - containerPort: {{ .Values.service.targetPort }}
-        resources: # Placed inside the container definition
+        resources:
           requests:
             memory: "64Mi"
             cpu: "100m"
