@@ -5,6 +5,9 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx
+    # DevSecOps Enforcement: Force NGINX to communicate securely inside the cluster
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: nginx
   rules:
@@ -17,4 +20,8 @@ spec:
           service:
             name: guestbook-service
             port:
-              number: {{ .Values.service.port }}
+              number: 443
+  tls:
+  - hosts:
+    - guestbook.app.local
+    secretName: guestbook-tls-secret # Secret that holds the SSL certificate
