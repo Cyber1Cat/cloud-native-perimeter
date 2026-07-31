@@ -13,7 +13,7 @@ spec:
       targetRevision: HEAD
       path: apps/guestbook
   destination:
-    server: 'https://default.svc'
+    server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
     automated:
