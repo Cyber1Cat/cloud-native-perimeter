@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: 'https://github.com'
+    - repoURL: 'https://github.com/Cyber1Cat/cloud-native-perimeter'
       targetRevision: HEAD
       path: perimeter/manifests
     - repoURL: 'https://github.com'
